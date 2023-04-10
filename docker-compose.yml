@@ -18,10 +18,10 @@ services:
     ports:
       - "${DB_PORT}:${DB_PORT}"
     environment:
-      - PG_PORT=${DB_PORT}
-      - PG_USER=${DB_USER}
-      - PG_PASS=${DB_PASS}
-      - PG_DB-${DB_NAME}
+      - POSTGRES_PORT=${DB_PORT}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB-${DB_NAME}
     healthcheck:
       test: []
       interval: 10s

@@ -9,13 +9,12 @@ COPY . /app
 WORKDIR /app
 
 # Install deps
-RUN pip install --upgrade pip && \
-  pip install poetry==$POETRY_VERSION && \
+RUN pip3 install --upgrade pip && \
+  pip3 install poetry==$POETRY_VERSION && \
   poetry install --without dev
 
-
 # Runtime
-FROM python:3.10-slim
+FROM python:3.11
 COPY --from=build-env /app /app
 WORKDIR /app
 CMD /app/.venv/bin/hypercorn conduit:app --bind "0.0.0.0:$PORT" --debug --access-logfile "-" --error-logfile "-"
