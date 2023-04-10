@@ -1,3 +1,6 @@
+makev:
+	docker compose up --wait --verbose
+
 make:
 	docker compose up -d --wait
 
