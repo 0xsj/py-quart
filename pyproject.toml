@@ -10,6 +10,9 @@ packages = [{ include = "conduit" }]
 python = "^3.11"
 
 
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
