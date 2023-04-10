@@ -104,3 +104,4 @@ terraform.rc
 
 # TODO / Note to self
 notes.md
+.poetry.lock

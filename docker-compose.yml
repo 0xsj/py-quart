@@ -1,19 +1,6 @@
 version: "3.9"
 services:
-  app:
-    build:
-      context: .
-      args:
-        PORT: ${PORT}
-    ports:
-      - "${PORT}:${PORT}"
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      - PORT=${PORT}
-      - DB_URI=postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}
-  db:
+ db:
     image: "postgres:14.6-alpine"
     ports:
       - "${DB_PORT}:${DB_PORT}"
@@ -27,5 +14,19 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  # app:
+  #   build:
+  #     context: .
+  #     args:
+  #       PORT: ${PORT}
+  #   ports:
+  #     - "${PORT}:${PORT}"
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #   environment:
+  #     - PORT=${PORT}
+  #     - DB_URI=postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+ 
 volumes:
   postgres:
