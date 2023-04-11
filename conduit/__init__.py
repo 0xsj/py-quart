@@ -1,6 +1,7 @@
 from quart import Quart, Blueprint, render_template, websocket
 from quart_schema import QuartSchema
 
+
 app = Quart(__name__)
 
 
