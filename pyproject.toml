@@ -8,6 +8,11 @@ packages = [{ include = "conduit" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+quart = "^0.18.4"
+quart-schema = "^0.15.0"
+hypercorn = "^0.14.3"
+quart-db = "^0.4.1"
+alembic = "^1.10.3"
 
 
 [tool.poetry.group.dev.dependencies]
