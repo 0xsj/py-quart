@@ -13,6 +13,7 @@ quart-schema = "^0.15.0"
 hypercorn = "^0.14.3"
 quart-db = "^0.4.1"
 alembic = "^1.10.3"
+psycopg = "^3.1.8"
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.0.2"

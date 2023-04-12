@@ -1,10 +1,10 @@
-import psycopg2
+import psycopg
 from typing import Optional
 from .user import User
 
 
 class UserService:
-    def __init__(self, conn: psycopg2.AsyncConnection):
+    def __init__(self, conn: psycopg.AsyncConnection):
         self._conn = conn
         self.users_table = "users"
 
