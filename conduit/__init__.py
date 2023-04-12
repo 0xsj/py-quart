@@ -1,9 +1,16 @@
 from quart import Quart, Blueprint, render_template, websocket
 from quart_schema import QuartSchema
-from .users import UserService
-import psycopg2
+from .users.service import UserService
+from .config import config
+import psycopg
 
 app = Quart(__name__)
+
+QuartSchema(
+    app=app
+)
+
+app.config.from_object(config)
 
 
 @app.route("/")
@@ -26,7 +33,8 @@ async def ws():
 @app.before_serving
 async def startup():
     print("startup func")
-    app.aconn = await psycopg.AsyncC
+    app.aconn = await psycopg.AsyncConnection.connect(app.config["DB_URL"])
+    user_service = UserService(conn=app.conn)
 
 
 @app.after_serving
