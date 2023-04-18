@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import Optional
-from user import UserBase
+from user import User
 
 
 @dataclass
-class UserResponse(UserBase):
+class UserResponse(User):
     token: str

@@ -4,7 +4,7 @@ from uuid import UUID
 
 
 @dataclass
-class UserBase:
+class User:
     id: UUID
     username: str
     email: str

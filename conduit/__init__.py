@@ -33,7 +33,7 @@ async def ws():
 @app.before_serving
 async def startup():
     print("startup func")
-    app.aconn = await psycopg.AsyncConnection.connect(app.config["DB_URL"])
+    app.aconn = await psycopg.AsyncConnection.connect(app.config["DB_URI"])
     user_service = UserService(conn=app.conn)
 
     app.user_service = user_service
